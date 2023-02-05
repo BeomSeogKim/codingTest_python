@@ -1,0 +1,68 @@
+class Node : 
+    def __init__(self, value = 0, next = None):
+        self.value = value
+        self.next = next
+
+class LinkedList(object):
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def append(self, value):
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        # 맨 뒤의 node 가 new_node를 가리켜야 한다.
+        else:   
+            self.tail.next = new_node
+            self.tail = self.tail.next
+        
+    def get(self, idx):
+        current = self.head
+        for _ in range(idx):
+            current = current.next
+        return current.value
+
+    def insert(self, idx, value):
+        new_node = Node(value)
+        current = self.head
+        for i in range(idx):
+            current = current.next
+            # print(i)
+        new_node.next = current.next
+        current.next = new_node
+
+    def remove(self, idx):
+        if idx == 0:
+            self.head = self.head.next
+        else: 
+            current = self.head
+            for _ in range(idx - 1):
+                current = current.next
+            current.next = current.next.next
+
+
+#     def remove(self, idx):
+
+#     def print(self):
+
+# li = LinkedList()
+# li.append(1)
+# li.append(2)
+# li.append(3)
+# li.append(4)
+# li.insert(idx = 2, value = 9)
+# print(li.get(3))
+
+li = LinkedList()
+li.append(1)
+li.append(2)
+li.append(3)
+li.append(4)
+li.append(5)
+print(li.get(3))
+li.remove(3)
+print(li.get(3))
+li2 = LinkedList()
+
