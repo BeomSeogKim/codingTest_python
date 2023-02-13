@@ -1,0 +1,18 @@
+# score = [97, 49, 88] -> 어떠한 과목에 대한 점수인 지 알기 어렵다 
+
+score = {
+    'math' : 97,
+    'eng' : 49,
+    'kor' : 88
+}
+
+print(score['math'])
+score['math'] = 45
+print(score['math'])
+score['sci'] = 100
+print(score['sci'])
+
+print('music' in score) # key 값이 있는지 확인하는 logic
+
+if 'music' in score:
+    print(score['music'])
