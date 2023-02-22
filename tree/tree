@@ -1,0 +1,17 @@
+class Node:
+    def __init__(self, value = 0, left_child = None, right_child = None):
+        self.value = 0
+        self.left_child = left_child
+        self.right_child = right_child
+
+class BinaryTree:
+    def __init__(self):
+        self.root = None
+
+bt = BinaryTree()
+bt.root = Node(value = 1)
+bt.root.left_child = Node(value=2)
+bt.root.right_child = Node(value=3)
+bt.root.left_child.left_child = Node(value=4)
+bt.root.left_child.right_child = Node(value=5)
+bt.root.right_child.right_child = Node(value=6)
