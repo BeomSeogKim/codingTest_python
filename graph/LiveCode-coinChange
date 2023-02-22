@@ -1,0 +1,32 @@
+# DFS, BFS
+def coinChange_dfs(coins, amount):
+    # amount : 9 => 3 
+    # amount : 5 => 1 
+    # Dictionary 사용 - Hash
+    memo = {}
+
+    def dfs(amount):
+        if amount == 0:
+            return 0
+        if amount < 0:
+            return -1
+        min_ret = float('inf')
+        # min_ret = 10000 
+        for coin in coins:
+            next_amount = amount - coin
+
+            if next_amount not in memo:
+                memo[next_amount] = dfs(next_amount)
+            ret = memo[next_amount]
+            
+            if ret == -1:
+                continue
+            min_ret = min(min_ret, ret)
+        return min_ret + 1
+    return dfs(amount)
+
+
+
+# print(coinChange_dfs([1,2,5], amount=11))
+# print(coinChange_dfs([1,3,6,8], amount=12))
+print(coinChange_dfs([186,419,83,408], amount=6249))
