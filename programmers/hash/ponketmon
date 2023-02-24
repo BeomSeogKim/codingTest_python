@@ -1,0 +1,21 @@
+def solution(nums):
+    answer = 0
+    h = {}
+
+    for num in nums:
+        if num not in h:
+            h[num] = True
+
+    if len(h) > (len(nums) / 2):
+        answer = len(nums) / 2
+    else:
+        answer = len(h)
+
+    return answer
+
+def solution2(nums):
+    setee = set(nums)
+    return min(len(nums)/2, len(set(nums)))
+
+print(solution(nums=[3,3,3,2,2,2]))
+print(solution2(nums=[3,3,3,2,2,2]))
