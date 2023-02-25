@@ -1,11 +1,15 @@
+# 문제 소스 : https: // school.programmers.co.kr/learn/courses/30/lessons/1845?language = python3
+# 폰켓몬 문제 => hash를 사용해서 풀기
 def solution(nums):
     answer = 0
-    h = {}
+    h = {}  # hash 생성
 
     for num in nums:
+        # hash 에 num 이 없을 경우 hash에 넣어준다.
         if num not in h:
-            h[num] = True
+            h[num] = True   # key 값이 중요하므로 key값에 num eodlq
 
+    # 만약 nums의 절반보다 종류가 많다면 가져가지 못한다. => 절반만 주기 
     if len(h) > (len(nums) / 2):
         answer = len(nums) / 2
     else:
@@ -14,7 +18,7 @@ def solution(nums):
     return answer
 
 def solution2(nums):
-    setee = set(nums)
+    # set 의 경우 중복되는 원소가 있으면 하나만 저장이 된다.
     return min(len(nums)/2, len(set(nums)))
 
 print(solution(nums=[3,3,3,2,2,2]))
