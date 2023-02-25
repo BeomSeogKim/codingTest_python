@@ -1,0 +1,33 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/42576?language=python3
+import collections
+
+def solution(participant, completion):
+    answer = ''
+    h = {}
+    # 참가자 모두 대입
+    for p in participant:
+        # 참가자 이름이 두명인 경우 
+        if p in h:
+            h[p] = h.get(p) + 1
+        else:
+            h[p] = 1
+    # 완주자는 제거 
+    for c in completion:
+        if c in h and h.get(c) == 1:
+            h.pop(c)
+        else: 
+            h[c] = h.get(c) -1
+    answer = list(h.keys())[0]
+
+    return answer
+
+def solution2(participant, completion):
+    answer = collections.Counter(participant) - collections.Counter(completion)
+    return list(answer.keys())[0]
+
+
+print(solution(participant=["mislav", "stanko", "mislav", "ana"], 
+               completion=["stanko", "ana", "mislav"]))
+
+print(solution2(participant=["mislav", "stanko", "mislav", "ana"],
+               completion=["stanko", "ana", "mislav"]))
