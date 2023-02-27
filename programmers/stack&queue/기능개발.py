@@ -26,4 +26,4 @@ def solution(progresses, speeds):
 
 
 print(solution(progresses=[93, 30, 55], speeds=[1, 30, 5]))
-# print(solution(progresses=[93, 30, 90], speeds=[1, 30, 5]))
+
