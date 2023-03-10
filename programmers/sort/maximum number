@@ -8,7 +8,8 @@ def solution(numbers):
     # 333 / 3131 / 312312 중 앞에 세자리를 비교하여 정렬 
     # 333 > 313 > 312
     num.sort(key = lambda x : x*3, reverse = True)
-    answer = str(''.join(num))
+    # [0, 00, 000] 이러한 경우 0으로 변환을 해 주어야 한다.
+    answer = int(str(''.join(num)))
     return answer
     
 
