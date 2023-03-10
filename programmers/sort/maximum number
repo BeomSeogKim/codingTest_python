@@ -1,0 +1,15 @@
+# 문제 소스 : https://school.programmers.co.kr/learn/courses/30/lessons/42746?language=python3
+
+def solution(numbers):
+    # map(str,numbers) => numbers 를 string 형태로 변환해 리스트에 넣어준다. 
+    num = list(map(str,numbers))
+    # 원소 : 1000 이하 => 세자리는 비교를 해 주어야 한다. 
+    # ex 3, 31, 312
+    # 333 / 3131 / 312312 중 앞에 세자리를 비교하여 정렬 
+    # 333 > 313 > 312
+    num.sort(key = lambda x : x*3, reverse = True)
+    answer = str(''.join(num))
+    return answer
+    
+
+print(solution(numbers=[3, 30, 34, 5, 9]))
